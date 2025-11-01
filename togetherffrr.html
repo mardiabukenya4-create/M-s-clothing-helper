@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mardia's Clothing Styles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #666;
+    }
+    main {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    main h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    main p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    section#suggestions {
+      background-color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    textarea {
+      width: 80%;
+      max-width: 500px;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+    input[type="submit"] {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+    #confirmationMessage {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Mardia's Clothing</h1>
+    <p>Explore your style — from cozy to bold</p>
+  </header>
+
+  <nav>
+    <a href="casual.html">Casual</a>
+    <a href="formal.html">Formal Party</a>
+    <a href="club.html">Going Out</a>
+    <a href="home.html">At Home</a>
+    <a href="gang.html">Gang Style</a>
+    <a href="#suggestions">Suggest a Style</a>
+  </nav>
+
+  <main>
+    <h2>Start your fashion journey</h2>
+    <p>Click a style above to see outfits that match your vibe. Each page features three looks to inspire your wardrobe.</p>
+  </main>
+
+  <!-- Suggestion Box -->
+  <section id="suggestions">
+    <h2>Suggest a New Style</h2>
+    <p>Have a cool style idea? Let us know!</p>
+    <form id="suggestionForm" action="https://formsubmit.co/mardiabukenya12@hotmail.com" method="POST" onsubmit="return showConfirmation(event)">
+      <textarea name="suggestion" placeholder="Type your style suggestion here..." required></textarea><br>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="submit" value="Send Suggestion">
+    </form>
+    <p id="confirmationMessage"></p>
+  </section>
+
+  <script>
+    function showConfirmation(event) {
+      event.preventDefault();
+      document.getElementById("confirmationMessage").textContent = "Sent — your voice will be heard.";
+      setTimeout(() => {
+        document.getElementById("suggestionForm").submit();
+      }, 1000); // Delay to show message before redirect
+      return false;
+    }
+  </script>
+
+</body>
+</html>
